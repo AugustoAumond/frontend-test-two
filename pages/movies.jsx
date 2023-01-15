@@ -10,6 +10,7 @@ import GlobalStyle from "../Globals_style/Globals";
 
 import Toggle from "../components/toggle/Toggle";
 import Header from "../components/header/Header";
+import Movie from "../components/movies/Movies";
 
 function Movies(){
     const {change} = useContext(MyContext);
@@ -33,7 +34,7 @@ function Movies(){
 
         <Header/>
 
-        {/*<Movies/>*/}
+        <Movie/>
     </DivMovies>)
 }
 export default Movies;
