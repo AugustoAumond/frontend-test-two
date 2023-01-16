@@ -23,17 +23,20 @@ function Genres(props){
         setList(props.list);
 
         var screenGenres = document.querySelector('#genres').clientWidth;
+            if (screenGenres > 1600){
+                setCount(5);
+            }
 
-            if (screenGenres > 1200){
-                setCount(3);
+            if (screenGenres < 1600){
+                setCount(4);
             }
     
             if (screenGenres < 1200){
-                setCount(2);
+                setCount(3);
             }
             
             if (screenGenres < 600){
-                setCount(1);
+                setCount(2);
             }
 
         console.log(document.querySelector('#genres').clientWidth);
@@ -67,7 +70,7 @@ function Genres(props){
 
                         <Link className="link" href={`movies/${item.id}`} onClick={(()=>setItem(item))}>
                             <div id="img">
-                                <img src={ `https://image.tmdb.org/t/p/original${item.backdrop_path}`} alt="" />
+                                <img src={ `https://image.tmdb.org/t/p/original${item.poster_path}`} alt="" />
                             </div>
                         </Link>
                     </SwiperSlide>
@@ -97,14 +100,14 @@ width: 80%;
     }
 
     img {
-        max-width: 350px;
+        max-width: 150px;
         min-width: 150px;
         width: 100%;
         cursor: pointer;
     }
 
     img:hover {
-        scale: 1.2;
+        scale: 1.1;
         min-width: 200px;
         z-index: 3;
     }

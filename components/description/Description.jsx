@@ -21,7 +21,7 @@ function Description(){
     return (
         <DivDescription>
             <div id="img">
-                <img src={`https://image.tmdb.org/t/p/original${item?.poster_path}`} alt="" />
+                <img src={`https://image.tmdb.org/t/p/original${item?.backdrop_path}`} alt="" />
             </div>
 
             <Infos change={change}>
@@ -51,15 +51,14 @@ display: flex;
 top: 100px;
 left: 50%;
 transform: translateX(-50%);
-width: 50%;
-height: 300px;
+width: 75%;
+max-width: 910px;
 flex-direction: column;
 align-items: center;
 
 
     img {
         width: 100%;
-        max-width: 340px;
     }
 `
 
@@ -71,7 +70,7 @@ top: 20px;
     #details {
         text-align: justify;
         font-size: 16px;
-        max-width: 500px;
+        max-width: 700px;
         font-weight: 500;
     }
 
