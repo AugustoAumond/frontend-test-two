@@ -10,10 +10,8 @@ import Toggle from "../../components/toggle/Toggle";
 import Header from '../../components/header/Header';
 import Description from "../../components/description/Description";
 
-function Details(props){
+function Details(){
     const {change} = useContext(MyContext);
-
-    console.log(props.item);
 
     return (
         <DivDetails change={change}>

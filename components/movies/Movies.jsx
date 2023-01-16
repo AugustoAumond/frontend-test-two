@@ -21,7 +21,6 @@ function Movie(props){
             if (search){
                 let newList = [];
                 list.map((e, index)=>{
-                    console.log(e.title);
                     if(e.title.toUpperCase().includes(search?.toUpperCase())) {
                         newList.push(e);
                     } 
@@ -30,7 +29,6 @@ function Movie(props){
             } else {
                 setList(response.data.results);
             }
-            
         })
     },[list, search])
     
@@ -66,22 +64,18 @@ const DivMovies = styled.div`
 position: relative;
 top: 20px;
 display: flex;
-top: 100px;
 left: 50%;
 transform: translateX(-50%);
 width: 80%;
-height: 300px;
 flex-direction: column;
 align-items: center;
 `
 
 const DivInput = styled.div`
 position: relative;
-left: 20px;
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
-height: 100px;
 width: 100%;
 color: ${props => props.change === false ? 'white' : '#090934'};
 
@@ -111,7 +105,6 @@ display: flex;
 justify-content: space-evenly;
 flex-wrap: wrap;
 position: relative;
-top: 30px;
 `
 
 const DivMovie = styled.div`
@@ -160,12 +153,11 @@ img:hover {
 #description {
     width: 90%;
     position: relative;
-    top: 30px;
 }
 
-    @media(max-width: 500px;){
-        width: 200px;
-    }
+@media(max-width: 500px){
+    width: 200px;
+}
 `
 
 

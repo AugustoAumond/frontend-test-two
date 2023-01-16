@@ -25,19 +25,11 @@ function Hightlights(){
 
             response.data.results.forEach(element => {
                 if (newList.length < 6){
-                    console.log(element)
                     newList.push(element)
                 }
                 setList(newList);
             });
-            console.log(list);
         })
-
-        axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=fdec3cf017f52d95fdcd581919da1255&language=en-US')
-        .then(response => {
-            console.log(response.data);
-        })
-
     },[])
 
     return (
@@ -45,7 +37,8 @@ function Hightlights(){
                 <Title change={change}>DESTAQUES DO MÊS</Title>
                 <Swiper id="swiper"
                     spaceBetween={30}
-                    centeredSlides={false}
+                    loop={true}
+                    simulateTouch={true}
                     autoplay={{
                     delay: 2500,
                     }}
@@ -65,11 +58,6 @@ function Hightlights(){
 
                                 <Link className="link" href={`movies/${item.id}`} onClick={(()=>setItem(item))}>
                                     <img src={ `https://image.tmdb.org/t/p/original${item.backdrop_path}`} alt="" />
-                                
-
-                                    <div id="infos">
-                                        <p id="description">{item.overview}</p>
-                                    </div>
                                 </Link>
                             </div>
                             
@@ -85,13 +73,13 @@ const DivHighlights = styled.div`
 position: relative;
 left: 50%;
 transform: translateX(-50%);
-top: 80px;
+margin-top: 20px;
 max-width: 850px;
 width: 90%;
 
     #swiper {
-        position: relative;
-        top: 30px;
+
+       
     }
 
     img {
@@ -100,32 +88,7 @@ width: 90%;
         width: 100%;
         z-index: 2;
         opacity: .8;
-    }
-
-    #infos {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 3;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: .1s;
         cursor: pointer;
-    }
-
-    #infos:hover {
-        opacity: 1;
-    }
-
-    #description {
-        width: 90%;
-        position: relative;
-        top: 30px;
     }
 `
 

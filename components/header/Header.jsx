@@ -18,7 +18,7 @@ function Header(){
         }
     }
     return (
-        <DivHeader>
+        <DivHeader open={open}>
 
             <BsList id="bs" onClick={(()=>{Open()})}/>
 
@@ -57,7 +57,7 @@ export default Header;
 
 const DivHeader = styled.div`
 position: relative;
-top: 40px;
+margin-top: 50px;
 left: 50%;
 transform: translateX(-50%);
 width: 100%;
@@ -76,7 +76,6 @@ height: 100px;
         left: unset;
         transform: translateX(100%);
         right: 0;
-        top: -14px;
         z-index: 3;
 
         #bs {
@@ -86,6 +85,12 @@ height: 100px;
             width: 35px;
             height: 35px;
         }
+    }
+
+    @media (max-width: 600px){
+        top: -15px;
+        margin-top: unset;
+        height: ${props => props.open === true || props.open === undefined ? '170px' : '35px'};
     }
 `
 
@@ -108,7 +113,7 @@ cursor: pointer;
 `
 
 const CentralizeContainer = styled.div`
-position: absolute;
+position: relative;
 top: 0;
 left: 50%;
 transform: translateX(-50%);
@@ -126,9 +131,9 @@ text-decoration: none;
 `
 
 const CentralizeContainer1 = styled.div`
-position: absolute;
+position: relative;
 text-decoration: none;
-top: 50px;
+top: 30px;
 right: 20px;
 flex-direction: column;
 width: 100%;

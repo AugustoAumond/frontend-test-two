@@ -24,8 +24,6 @@ function Movies(){
             });
         }, [])
 
-        console.log(list);
-
     return (
     <DivMovies change={change}>
         <GlobalStyle/>
@@ -42,38 +40,21 @@ function Movies(){
 export default Movies;
 
 const DivMovies = styled.div`
-position: absolute;
+position: relative;
 top: 0;
 left: 0;
 min-height: 100vh;
-height: 2600px;
+height: 100%;
 width: 100%;
 background: ${props => props.change === false ? '#1c1b1b' : '#f1f1f1'};
 display: flex;
 flex-direction: column;
 padding: 20px;
-
-    @media(max-width: 2170px){
-        height: 3100px;
-    }
-
-    @media(max-width: 1756px){
-        height: 4150px;
-    }
-
-    @media(max-width: 1331px){
-        height: 5700px;
-    }
-
-    @media(max-width: 906px){
-        height: 10800px;
-    }
-
 `
 
 const H1 = styled.h1`
 position: relative;
-top: 80px;
+margin-top: 40px;
 left: 50%;
 transform: translateX(-50%);
 width: 300px;

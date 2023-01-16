@@ -63,7 +63,7 @@ align-items: center;
 `
 
 const Infos = styled.div`
-color: ${props => props.change === false ? 'white' : '#1c1b1b'};
+color: ${props => props.change === false ? 'white' : '#090934'};
 position: relative;
 top: 20px;
 

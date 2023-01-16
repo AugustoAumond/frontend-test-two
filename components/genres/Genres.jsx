@@ -42,8 +42,6 @@ function Genres(props){
             if (screenGenres < 515){
                 setCount(1);
             }
-
-        console.log(document.querySelector('#genres').clientWidth);
     },[props.list])    
 
     return (
@@ -51,7 +49,8 @@ function Genres(props){
             <Title change={change}>{props.name}</Title>
 
             <Swiper id="swiper"
-            spaceBetween={100}
+            spaceBetween={50}
+            loop={true}
             slidesPerView={count}
             centeredSlides={false}
             pagination={{
@@ -84,6 +83,12 @@ export default Genres;
 const DivGenres = styled.div`
 position: relative;
 width: 80%;
+height: 300px;
+margin-top: 20px;
+
+    .swiper{
+        height: 285px;
+    }
 
     #divswiper {
         min-width: 150px;

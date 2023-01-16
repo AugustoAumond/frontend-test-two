@@ -92,12 +92,6 @@ function Category(){
         })
     },[])
 
-    console.log(category)
-
-    console.log(action, drama, animation, comedy);
-
-
-
     return (
         <DivCategory change={change}>
             <GlobalStyle/>
@@ -126,21 +120,14 @@ const DivCategory = styled.div`
 position: absolute;
 top: 0;
 left: 0;
-height: 1750px;
-max-height: 200vh;
-min-height: 100vw;
 width: 100%;
+padding: 20px 0px;
 background: ${props => props.change === false ? '#1c1b1b' : '#f1f1f1'};
-
-    @media(max-width: 550px){
-        max-height: unset;
-        height: 1865px
-    }
 `
 
 const H1 = styled.h1 `
 position: relative;
-top: 80px;
+margin-top: 40px;
 left: 50%;
 transform: translateX(-50%);
 width: 200px;
@@ -154,20 +141,14 @@ color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
 
 const Genre = styled.div`
 position: relative;
+margin-top: 30px;
+padding: 30px 0px;
 left: 50%;
 transform: translateX(-50%);
-top: 120px;
 width: 90%;
 border: solid 1px ${props => props.change === false ? 'gray' : '#090934'};;
-height: 1375px;
-max-height: 230vw;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-evenly;
-
-    @media (max-width: 550px){
-        height: 1500px;
-        max-height: unset;
-    }
 `
