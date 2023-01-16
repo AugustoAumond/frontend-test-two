@@ -87,6 +87,7 @@ left: 50%;
 transform: translateX(-50%);
 top: 80px;
 max-width: 850px;
+width: 90%;
 
     #swiper {
         position: relative;
@@ -130,7 +131,7 @@ max-width: 850px;
 
 const Title = styled.h1`
 text-align: center;
-color: ${props => props.change === false ? 'white' : '#1c1b1b'};
+color: ${props => props.change === false ? 'white' : '#090934'};
 
 @media(max-width: 500px){
     font-size: 20px;
@@ -146,5 +147,5 @@ display: flex;
 align-items: center;
 font-size: clamp(0.4vw,26px,4.9vw);
 justify-content: center;
-color: ${props => props.change === false ? 'white' : '#1c1b1b'}
+color: ${props => props.change === false ? 'white' : '#090934'}
 `

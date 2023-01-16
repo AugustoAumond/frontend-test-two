@@ -31,11 +31,11 @@ function Genres(props){
                 setCount(4);
             }
     
-            if (screenGenres < 1200){
+            if (screenGenres < 1150){
                 setCount(3);
             }
             
-            if (screenGenres < 600){
+            if (screenGenres < 809){
                 setCount(2);
             }
 
@@ -138,7 +138,7 @@ const Title = styled.h1`
 position: relative;
 bottom: 10px;
 font-size: 32px;
-color: ${props => props.change === false ? '#f1f1f1' : '#1c1b1b'};
+color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
 
 @media (max-width: 1200px){
     font-size: 24px;
@@ -161,7 +161,8 @@ align-items: center;
 font-size: clamp(1vw,20px,1.3vw);
 justify-content: center;
 text-align: center;
-color: ${props => props.change === false ? '#f1f1f1' : '#1c1b1b'};
+color: ${props => props.change === false ? '#f1f1f1' : 'black'};
+font-weight: 700;
 
 
     @media (max-width: 600px){

@@ -64,6 +64,7 @@ export default Movie;
 
 const DivMovies = styled.div`
 position: relative;
+top: 20px;
 display: flex;
 top: 100px;
 left: 50%;
@@ -82,7 +83,7 @@ flex-direction: column;
 justify-content: flex-start;
 height: 100px;
 width: 100%;
-color: ${props => props.change === false ? 'white' : '#1c1b1b'};
+color: ${props => props.change === false ? 'white' : '#090934'};
 
     p {
         font-size: 24px;
@@ -93,6 +94,9 @@ color: ${props => props.change === false ? 'white' : '#1c1b1b'};
         border-radius: 8px;
         height: 35px;
         box-shadow: 3px 3px #ffffff0f;
+        padding: 5px;
+        font-weight: 700;
+        
     }
 
     @media (max-width: 885px){
@@ -158,6 +162,10 @@ img:hover {
     position: relative;
     top: 30px;
 }
+
+    @media(max-width: 500px;){
+        width: 200px;
+    }
 `
 
 
@@ -170,5 +178,5 @@ display: flex;
 align-items: center;
 font-size: 16px;
 justify-content: center;
-color: ${props => props.change === false ? 'white' : '#1c1b1b'}
+color: ${props => props.change === false ? 'white' : '#090934'}
 `

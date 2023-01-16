@@ -108,7 +108,7 @@ function Category(){
 
             <H1 change={change}>CATEGORIAS</H1>
 
-            <Genre>
+            <Genre change={change}>
                 <Genres list={action} name={'ACTION'}/>
 
                 <Genres list={animation} name={'ANIMATION / FANTASIA'}/>
@@ -143,7 +143,7 @@ top: 80px;
 left: 50%;
 transform: translateX(-50%);
 width: 200px;
-color: ${props => props.change === false ? '#f1f1f1' : '#1c1b1b'};
+color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
 
     @media (max-width: 500px){
         font-size: 20px;
@@ -157,7 +157,7 @@ left: 50%;
 transform: translateX(-50%);
 top: 120px;
 width: 90%;
-border: solid 1px gray;
+border: solid 1px ${props => props.change === false ? 'gray' : '#090934'};;
 height: 1375px;
 max-height: 230vw;
 display: flex;

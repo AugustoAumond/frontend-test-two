@@ -1,11 +1,13 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-import {useState } from "react";
+import {useContext, useState } from "react";
 
 import {BsList} from 'react-icons/bs';
+import MyContext from "../../context/MyContext";
 
 function Header(){
+    const {change} = useContext(MyContext);
     const [open, setOpen] = useState(false);
 
     function Open(){
@@ -20,31 +22,31 @@ function Header(){
 
             <BsList id="bs" onClick={(()=>{Open()})}/>
 
-            <CentralizeContainer>
+            <CentralizeContainer change={change}>
                 <Link className="link" href='/'>
-                    <div id="link">HOMEPAGE</div>
+                    <Button change={change} id="link">HOMEPAGE</Button>
                 </Link>
                 
                 <Link className="link" href='/category'>
-                    <div id="link">CATEGORIAS</div>
+                    <Button change={change} id="link">CATEGORIAS</Button>
                 </Link>
                 
                 <Link className="link" href='/movies'>
-                    <div id="link">FILMES</div>
+                    <Button change={change} id="link">FILMES</Button>
                 </Link>    
             </CentralizeContainer>
 
             <CentralizeContainer1 open={open}>
                 <Link className="link" href='/'>
-                    <div id="link">HOMEPAGE</div>
+                    <Button change={change} id="link">HOMEPAGE</Button>
                 </Link>
                 
                 <Link className="link" href='/category'>
-                    <div id="link">CATEGORIAS</div>
+                    <Button change={change} id="link">CATEGORIAS</Button>
                 </Link>
                 
                 <Link className="link" href='/movies'>
-                    <div id="link">FILMES</div>
+                    <Button change={change} id="link">FILMES</Button>
                 </Link>    
             </CentralizeContainer1>
 
@@ -87,6 +89,24 @@ height: 100px;
     }
 `
 
+const Button = styled.div `
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 150px;
+height: 35px;
+background: ${props => props.change === false ? 'gray' : '#090934'};
+font-weight: 500;
+border-radius: 5px;
+transition: .7s;
+cursor: pointer;
+
+    #link:hover {
+        scale:1.25;
+    }
+`
+
 const CentralizeContainer = styled.div`
 position: absolute;
 top: 0;
@@ -97,26 +117,8 @@ height: 100%;
 display: flex;
 justify-content: space-around;
 align-items: center;
-border: solid gray;
+border: solid ${props => props.change === false ? 'gray' : '#090934'};
 text-decoration: none;
-
-    #link {
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 150px;
-        height: 35px;
-        background: gray;
-        font-weight: 500;
-        border-radius: 5px;
-        transition: .7s;
-        cursor: pointer;
-    }
-
-    #link:hover {
-        scale:1.25;
-    }
 
     @media(max-width: 600px){
         display: none;
