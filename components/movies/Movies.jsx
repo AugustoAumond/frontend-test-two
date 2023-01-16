@@ -51,7 +51,7 @@ function Movie(props){
 
                         <Link className="link" href={`movies/${item.id}`} onClick={(()=>setItem(item))}>
                             <div id="img">
-                                <img src={ `https://image.tmdb.org/t/p/original${item.backdrop_path}`} alt="" />
+                                <img src={ `https://image.tmdb.org/t/p/original${item.poster_path}`} alt="" />
                             </div>
                         </Link>
                     </DivMovie>
