@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 
 import MyContext from "../../context/MyContext";
 
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,16 +12,35 @@ import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper";
 import Link from "next/link";
 
-
-
 function Genres(props){
     const {change} = useContext(MyContext);
     const {setItem} = useContext(MyContext);
-    const [list, setList] = useState()
+    const [list, setList] = useState();
+    const [count, setCount] = useState(3);
+
 
     useEffect(()=>{
-        setList(props.list)
+        setList(props.list);
+
+        var screenGenres = document.querySelector('#genres').clientWidth;
+
+            if (screenGenres > 1200){
+                setCount(3);
+            }
+    
+            if (screenGenres < 1200){
+                setCount(2);
+            }
+            
+            if (screenGenres < 600){
+                setCount(1);
+            }
+
+        console.log(document.querySelector('#genres').clientWidth);
     },[props.list])
+
+   
+
     
 
     return (
@@ -29,7 +49,7 @@ function Genres(props){
 
             <Swiper id="swiper"
             spaceBetween={100}
-            slidesPerView={3}
+            slidesPerView={count}
             centeredSlides={false}
             pagination={{
             clickable: true,

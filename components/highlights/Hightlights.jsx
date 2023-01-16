@@ -86,8 +86,7 @@ position: relative;
 left: 50%;
 transform: translateX(-50%);
 top: 80px;
-max-width: 550px;
-max-height: 300px;
+max-width: 850px;
 
     #swiper {
         position: relative;
