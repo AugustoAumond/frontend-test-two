@@ -133,7 +133,8 @@ width: 100%;
 background: ${props => props.change === false ? '#1c1b1b' : '#f1f1f1'};
 
     @media(max-width: 550px){
-        max-height: 340vw;
+        max-height: unset;
+        height: 1865px
     }
 `
 
@@ -164,4 +165,9 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-evenly;
+
+    @media (max-width: 550px){
+        height: 1500px;
+        max-height: unset;
+    }
 `

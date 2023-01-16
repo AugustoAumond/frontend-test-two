@@ -39,6 +39,10 @@ function Genres(props){
                 setCount(2);
             }
 
+            if (screenGenres < 515){
+                setCount(1);
+            }
+
         console.log(document.querySelector('#genres').clientWidth);
     },[props.list])    
 
@@ -92,6 +96,8 @@ width: 80%;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
         
     }
 
