@@ -142,7 +142,6 @@ display: none;
     justify-content: center;
     width: 100%;
     height: 35px;
-    background: gray;
     font-weight: 500;
     border-radius: 5px;
     transition: .7s;
