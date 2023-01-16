@@ -127,6 +127,7 @@ img {
 }
 
 img:hover {
+    border: solid 2px gray;
     scale: 1.1;
     min-width: 200px;
     z-index: 3;

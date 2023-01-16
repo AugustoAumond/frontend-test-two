@@ -40,11 +40,7 @@ function Genres(props){
             }
 
         console.log(document.querySelector('#genres').clientWidth);
-    },[props.list])
-
-   
-
-    
+    },[props.list])    
 
     return (
         <DivGenres id="genres">
@@ -64,7 +60,7 @@ function Genres(props){
 
                 {list?.map((item, index)=>(
                     <SwiperSlide id="divswiper" key={index}>
-                        <DivTitle change={change}>
+                        <DivTitle id="title" change={change}>
                             {item.title}
                         </DivTitle>
 
@@ -107,8 +103,7 @@ width: 80%;
     }
 
     img:hover {
-        scale: 1.1;
-        min-width: 200px;
+        border: solid 2px gray;
         z-index: 3;
     }
 
@@ -165,6 +160,7 @@ display: flex;
 align-items: center;
 font-size: clamp(1vw,20px,1.3vw);
 justify-content: center;
+text-align: center;
 color: ${props => props.change === false ? '#f1f1f1' : '#1c1b1b'};
 
 
