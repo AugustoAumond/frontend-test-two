@@ -5,11 +5,13 @@ import { useContext, useEffect, useState } from "react";
 import MyContext from "../../context/MyContext";
 
 import axios from "axios";
+import Link from "next/link";
 
 
 
 function Movie(props){
     const {change} = useContext(MyContext);
+    const {setItem} = useContext(MyContext);
     const [list, setList] = useState()
     const [search, setSearch] = useState()
 
@@ -47,9 +49,11 @@ function Movie(props){
                             {item.title}
                         </DivTitle>
 
-                        <div id="img">
-                            <img src={ `https://image.tmdb.org/t/p/original${item.poster_path}`} alt="" />
-                        </div>
+                        <Link className="link" href={`movies/${item.id}`} onClick={(()=>setItem(item))}>
+                            <div id="img">
+                                <img src={ `https://image.tmdb.org/t/p/original${item.backdrop_path}`} alt="" />
+                            </div>
+                        </Link>
                     </DivMovie>
                 ))}
                 </DivGrid>
@@ -89,6 +93,12 @@ color: ${props => props.change === false ? 'white' : '#1c1b1b'};
         border-radius: 8px;
         height: 35px;
         box-shadow: 3px 3px #ffffff0f;
+    }
+
+    @media (max-width: 885px){
+        p{
+            font-size: 16px;
+        } 
     }
 `
 

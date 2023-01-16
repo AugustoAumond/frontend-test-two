@@ -10,10 +10,12 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 import axios from "axios";
 import MyContext from "../../context/MyContext";
+import Link from "next/link";
 
 function Hightlights(){
     const [list, setList] = useState();
     const {change} = useContext(MyContext);
+    const { setItem} = useContext(MyContext);
 
     useEffect( () =>{
 
@@ -40,36 +42,40 @@ function Hightlights(){
 
     return (
         <DivHighlights>
-            <Title change={change}>DESTAQUES DO MÊS</Title>
-            <Swiper id="swiper"
-                spaceBetween={30}
-                centeredSlides={false}
-                autoplay={{
-                delay: 2500,
-                }}
-                pagination={{
-                clickable: true,
-                }}
-                navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}>
+                <Title change={change}>DESTAQUES DO MÊS</Title>
+                <Swiper id="swiper"
+                    spaceBetween={30}
+                    centeredSlides={false}
+                    autoplay={{
+                    delay: 2500,
+                    }}
+                    pagination={{
+                    clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}>
 
-                {list?.map((item, index)=>(
-                    <SwiperSlide key={index}>
-                        <div>
-                            <DivTitle change={change}>
-                                {item.title}
-                            </DivTitle>
+                    {list?.map((item, index)=>(
+                        <SwiperSlide key={index}>
+                            
+                            <div>
+                                <DivTitle change={change}>
+                                    {item.title}
+                                </DivTitle>
 
-                            <img src={ `https://image.tmdb.org/t/p/original${item.backdrop_path}`} alt="" />
+                                <Link className="link" href={`movies/${item.id}`} onClick={(()=>setItem(item))}>
+                                    <img src={ `https://image.tmdb.org/t/p/original${item.backdrop_path}`} alt="" />
+                                
 
-                            <div id="infos">
-                                <p id="description">{item.overview}</p>
+                                    <div id="infos">
+                                        <p id="description">{item.overview}</p>
+                                    </div>
+                                </Link>
                             </div>
-                        </div>
-                    </SwiperSlide>
-                    ))}
-            </Swiper>
-            
+                            
+                        </SwiperSlide>
+                        ))}
+                </Swiper>
         </DivHighlights>
     )
 }
@@ -125,7 +131,11 @@ max-height: 300px;
 
 const Title = styled.h1`
 text-align: center;
-color: ${props => props.change === false ? 'white' : '#1c1b1b'}
+color: ${props => props.change === false ? 'white' : '#1c1b1b'};
+
+@media(max-width: 500px){
+    font-size: 20px;
+}
 `
 
 const DivTitle = styled.div`
@@ -135,7 +145,7 @@ left: 0;
 width: 100%;
 display: flex;
 align-items: center;
-font-size: 26px;
+font-size: clamp(0.4vw,26px,4.9vw);
 justify-content: center;
 color: ${props => props.change === false ? 'white' : '#1c1b1b'}
 `

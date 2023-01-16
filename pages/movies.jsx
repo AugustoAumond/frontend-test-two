@@ -34,6 +34,8 @@ function Movies(){
 
         <Header/>
 
+        <H1 change={change}>TODOS O FILMES</H1>
+
         <Movie/>
     </DivMovies>)
 }
@@ -44,9 +46,45 @@ position: absolute;
 top: 0;
 left: 0;
 min-height: 100vh;
+height: 1365px;
 width: 100%;
 background: ${props => props.change === false ? '#1c1b1b' : '#f1f1f1'};
 display: flex;
 flex-direction: column;
 padding: 20px;
+
+    @media(max-width: 2170px){
+        height: 1665px;
+    }
+
+    @media(max-width: 1750px){
+        height: 2165px;
+    }
+
+    @media(max-width: 1340px){
+        height: 2765px;
+    }
+
+    @media(max-width: 905px){
+        height: 5165px;
+    }
+
+`
+
+const H1 = styled.h1`
+position: relative;
+top: 80px;
+left: 50%;
+transform: translateX(-50%);
+width: 300px;
+color: ${props => props.change === false ? '#f1f1f1' : '#1c1b1b'};
+text-align: center;
+
+    @media(max-width: 1000px){
+        font-size: 24px;
+    }
+
+    @media(max-width: 885px){
+        font-size: 20px;
+    }
 `

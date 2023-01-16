@@ -106,6 +106,8 @@ function Category(){
             
             <Header/>
 
+            <H1 change={change}>CATEGORIAS</H1>
+
             <Genre>
                 <Genres list={action} name={'ACTION'}/>
 
@@ -124,19 +126,40 @@ const DivCategory = styled.div`
 position: absolute;
 top: 0;
 left: 0;
-height: 1650px;
+height: 1750px;
+max-height: 200vh;
+min-height: 100vw;
 width: 100%;
 background: ${props => props.change === false ? '#1c1b1b' : '#f1f1f1'};
+
+    @media(max-width: 550px){
+        max-height: 340vw;
+    }
+`
+
+const H1 = styled.h1 `
+position: relative;
+top: 80px;
+left: 50%;
+transform: translateX(-50%);
+width: 200px;
+color: ${props => props.change === false ? '#f1f1f1' : '#1c1b1b'};
+
+    @media (max-width: 500px){
+        font-size: 20px;
+        text-align: center;
+    }
 `
 
 const Genre = styled.div`
 position: relative;
 left: 50%;
 transform: translateX(-50%);
-top: 80px;
+top: 120px;
 width: 90%;
 border: solid 1px gray;
 height: 1375px;
+max-height: 230vw;
 display: flex;
 flex-direction: column;
 align-items: center;

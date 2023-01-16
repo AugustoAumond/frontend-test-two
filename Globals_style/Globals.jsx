@@ -18,4 +18,15 @@ export default createGlobalStyle`
         color: white;
         height: 100vh;
     }
+
+    .link {
+        text-decoration: none;
+        color: white;
+    }
+
+    @media(max-width: 600px){
+        .link {
+            width: 100%;
+        }
+    }
 `
