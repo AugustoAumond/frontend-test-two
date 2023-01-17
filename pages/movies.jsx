@@ -16,12 +16,14 @@ function Movies(){
     const {change} = useContext(MyContext);
     const [list, setList] = useState();
 
-    useEffect( () =>{
-
+    useEffect(() =>{
         axios.get('https://api.themoviedb.org/3/trending/movie/week?api_key=fdec3cf017f52d95fdcd581919da1255')
-        .then(response => {
+        .then((response) => {
                 setList(response.data.results);
-            });
+            })
+            .catch((err)=>{
+                console.log(err);
+            }) 
         }, [])
 
     return (

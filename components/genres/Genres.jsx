@@ -84,7 +84,7 @@ const DivGenres = styled.div`
 position: relative;
 width: 80%;
 height: 300px;
-margin-top: 20px;
+margin-top: 40px;
 
     .swiper{
         height: 285px;

@@ -30,6 +30,9 @@ function Movie(props){
                 setList(response.data.results);
             }
         })
+        .catch((err)=>{
+            console.log(err);
+        }) 
     },[list, search])
     
 

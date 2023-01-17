@@ -17,19 +17,19 @@ function Hightlights(){
     const {change} = useContext(MyContext);
     const { setItem} = useContext(MyContext);
 
-    useEffect( () =>{
-
-        axios.get('https://api.themoviedb.org/3/trending/movie/week?api_key=fdec3cf017f52d95fdcd581919da1255')
-        .then(response => {
+    useEffect(() =>{
+            axios.get('https://api.themoviedb.org/3/trending/movie/week?api_key=fdec3cf017f52d95fdcd581919da1255')
+            .then(response => {
             let newList = [];
-
             response.data.results.forEach(element => {
                 if (newList.length < 6){
                     newList.push(element)
                 }
                 setList(newList);
             });
-        })
+        }).catch((err)=>{
+            console.log(err);
+        })      
     },[])
 
     return (
