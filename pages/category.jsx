@@ -1,10 +1,9 @@
 import styled from "styled-components";
-
-import axios from "axios";
-
 import { useContext, useEffect, useState } from "react";
 
 import MyContext from "../context/MyContext";
+
+import axios from "axios";
 
 import GlobalStyle from "../Globals_style/Globals";
 
@@ -23,6 +22,7 @@ function Category(){
 
 
     useEffect( () =>{
+        //Requisição e filtro das categorias;
         axios.get('https://api.themoviedb.org/3/trending/movie/week?api_key=fdec3cf017f52d95fdcd581919da1255')
         .then(response => {
             let action = [];
@@ -86,6 +86,7 @@ function Category(){
             setDrama(drama);
         })
 
+        //Id das Categorias;
         axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=fdec3cf017f52d95fdcd581919da1255&language=en-US')
         .then(response => {
             setCategory(response.data.genres);
@@ -117,21 +118,21 @@ function Category(){
 export default Category;
 
 const DivCategory = styled.div`
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-padding: 20px 0px;
-background: ${props => props.change === false ? '#1c1b1b' : '#f1f1f1'};
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0px;
+    background: ${props => props.change === false ? '#1c1b1b' : '#f1f1f1'};
 `
 
 const H1 = styled.h1 `
-position: relative;
-margin-top: 40px;
-left: 50%;
-transform: translateX(-50%);
-width: 200px;
-color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
+    position: relative;
+    margin-top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
 
     @media (max-width: 500px){
         font-size: 20px;
@@ -140,15 +141,15 @@ color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
 `
 
 const Genre = styled.div`
-position: relative;
-margin-top: 30px;
-padding: 30px 0px;
-left: 50%;
-transform: translateX(-50%);
-width: 90%;
-border: solid 1px ${props => props.change === false ? 'gray' : '#090934'};;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-evenly;
+    position: relative;
+    margin-top: 30px;
+    padding: 30px 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    border: solid 1px ${props => props.change === false ? 'gray' : '#090934'};;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 `

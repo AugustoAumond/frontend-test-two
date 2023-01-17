@@ -1,10 +1,9 @@
 import styled from "styled-components";
-
-import axios from "axios";
-
 import { useContext, useEffect, useState } from "react";
 
 import MyContext from "../context/MyContext";
+
+import axios from "axios";
 
 import GlobalStyle from "../Globals_style/Globals";
 
@@ -42,26 +41,26 @@ function Movies(){
 export default Movies;
 
 const DivMovies = styled.div`
-position: relative;
-top: 0;
-left: 0;
-min-height: 100vh;
-height: 100%;
-width: 100%;
-background: ${props => props.change === false ? '#1c1b1b' : '#f1f1f1'};
-display: flex;
-flex-direction: column;
-padding: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background: ${props => props.change === false ? '#1c1b1b' : '#f1f1f1'};
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 `
 
 const H1 = styled.h1`
-position: relative;
-margin-top: 40px;
-left: 50%;
-transform: translateX(-50%);
-width: 300px;
-color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
-text-align: center;
+    position: relative;
+    margin-top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
+    text-align: center;
 
     @media(max-width: 1000px){
         font-size: 24px;

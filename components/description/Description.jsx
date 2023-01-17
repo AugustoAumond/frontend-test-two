@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import { useContext, useEffect} from "react";
 
 import MyContext from "../../context/MyContext";
@@ -10,6 +9,7 @@ function Description(){
     const {change} = useContext(MyContext);
     const {item, setItem} = useContext(MyContext);
 
+    //Para o componente armazenar o item caso usuário atualize a página;
     useEffect(()=>{
         if (item === undefined){
             setItem(JSON.parse(localStorage.getItem('list')));
@@ -46,15 +46,15 @@ function Description(){
 export default Description;
 
 const DivDescription = styled.div`
-position: relative;
-display: flex;
-top: 100px;
-left: 50%;
-transform: translateX(-50%);
-width: 75%;
-max-width: 910px;
-flex-direction: column;
-align-items: center;
+    position: relative;
+    display: flex;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    max-width: 910px;
+    flex-direction: column;
+    align-items: center;
 
 
     img {
@@ -63,9 +63,9 @@ align-items: center;
 `
 
 const Infos = styled.div`
-color: ${props => props.change === false ? 'white' : '#090934'};
-position: relative;
-top: 20px;
+    color: ${props => props.change === false ? 'white' : '#090934'};
+    position: relative;
+    top: 20px;
 
     #details {
         text-align: justify;

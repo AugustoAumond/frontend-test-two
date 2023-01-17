@@ -1,16 +1,15 @@
 import styled from "styled-components"; 
-
 import { useContext, useEffect, useState } from "react";
 
 import MyContext from "../../context/MyContext";
 
+import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-// import required modules
 import { Pagination, Navigation } from "swiper";
-import Link from "next/link";
+
 
 function Genres(props){
     const {change} = useContext(MyContext);
@@ -18,7 +17,7 @@ function Genres(props){
     const [list, setList] = useState();
     const [count, setCount] = useState(3);
 
-
+    //Ajustar o número de itens do carousel baseado no tamanho da página;
     useEffect(()=>{
         setList(props.list);
 
@@ -59,8 +58,6 @@ function Genres(props){
             navigation={true}
             modules={[Pagination, Navigation]}>
 
-                
-
                 {list?.map((item, index)=>(
                     <SwiperSlide id="divswiper" key={index}>
                         <DivTitle id="title" change={change}>
@@ -81,10 +78,10 @@ function Genres(props){
 export default Genres;
 
 const DivGenres = styled.div`
-position: relative;
-width: 80%;
-height: 300px;
-margin-top: 40px;
+    position: relative;
+    width: 80%;
+    height: 300px;
+    margin-top: 40px;
 
     .swiper{
         height: 285px;
@@ -146,10 +143,10 @@ margin-top: 40px;
 `
 
 const Title = styled.h1`
-position: relative;
-bottom: 10px;
-font-size: 32px;
-color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
+    position: relative;
+    bottom: 10px;
+    font-size: 32px;
+    color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
 
 @media (max-width: 1200px){
     font-size: 24px;
@@ -162,18 +159,18 @@ color: ${props => props.change === false ? '#f1f1f1' : '#090934'};
 
 
 const DivTitle = styled.div`
-position: relative;
-top: 0;
-left: 0;
-width: 100%;
-min-width: 150px;
-display: flex;
-align-items: center;
-font-size: clamp(1vw,20px,1.3vw);
-justify-content: center;
-text-align: center;
-color: ${props => props.change === false ? '#f1f1f1' : 'black'};
-font-weight: 700;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    font-size: clamp(1vw,20px,1.3vw);
+    justify-content: center;
+    text-align: center;
+    color: ${props => props.change === false ? '#f1f1f1' : 'black'};
+    font-weight: 700;
 
 
     @media (max-width: 600px){
