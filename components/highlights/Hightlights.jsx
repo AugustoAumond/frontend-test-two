@@ -49,15 +49,15 @@ function Hightlights(){
                     modules={[Autoplay, Pagination, Navigation]}>
 
                     {list?.map((item, index)=>(
-                        <SwiperSlide key={index}>
+                        <SwiperSlide  key={index}>
                             
-                            <div>
+                            <div id="divswiper">
                                 <DivTitle change={change}>
                                     {item.title}
                                 </DivTitle>
 
                                 <Link className="link" href={`movies/${item.id}`} onClick={(()=>setItem(item))}>
-                                    <img src={ `https://image.tmdb.org/t/p/original${item.backdrop_path}`} alt="" />
+                                    <img src={ `https://image.tmdb.org/t/p/original${item.poster_path}`} alt="" />
                                 </Link>
                             </div>
                             
@@ -77,15 +77,27 @@ margin-top: 20px;
 max-width: 850px;
 width: 90%;
 
-    #swiper {
+    @media (max-width: 410px){
+        position: absolute;
+        top: 50%;
+        transform: translate(-50% ,-50%);
+    }
 
-       
+    #divswiper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     img {
         position: relative;
+        left: 50%;
+        transform: translateX(-50%);
         top: 10px;
-        width: 100%;
+        width: 80%;
+        max-width: 470px;
+        min-width: 280px;
         z-index: 2;
         opacity: .8;
         cursor: pointer;
